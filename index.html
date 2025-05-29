@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Smart Number Guessing Game 🎲</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="theme-toggle">
+            <button onclick="toggleTheme()" id="theme-btn">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+
+        <h1>🎮 Smart Number Guessing Game 🎲</h1>
+        
+        <div id="game-setup" class="game-section">
+            <h2>🎯 Choose Difficulty</h2>
+            <div class="difficulty-buttons">
+                <button onclick="startGame(50)" class="difficulty-btn">
+                    <span class="emoji">😊</span>
+                    Easy (1-50)
+                </button>
+                <button onclick="startGame(100)" class="difficulty-btn">
+                    <span class="emoji">😎</span>
+                    Medium (1-100)
+                </button>
+                <button onclick="startGame(200)" class="difficulty-btn">
+                    <span class="emoji">🤔</span>
+                    Hard (1-200)
+                </button>
+                <button onclick="startGame(500)" class="difficulty-btn">
+                    <span class="emoji">🧠</span>
+                    Expert (1-500)
+                </button>
+            </div>
+        </div>
+
+        <div id="game-play" class="game-section hidden">
+            <h2>🎲 Game in Progress</h2>
+            <div class="progress-bar">
+                <div id="progress-fill"></div>
+            </div>
+            <p id="range-display"></p>
+            <div class="guess-display">
+                <p>My guess is: <span id="current-guess">-</span></p>
+                <div class="response-buttons">
+                    <button onclick="handleResponse('H')" class="response-btn high">
+                        <span class="emoji">⬆️</span> Too High
+                    </button>
+                    <button onclick="handleResponse('L')" class="response-btn low">
+                        <span class="emoji">⬇️</span> Too Low
+                    </button>
+                    <button onclick="handleResponse('C')" class="response-btn correct">
+                        <span class="emoji">🎯</span> Correct
+                    </button>
+                </div>
+            </div>
+            <div class="hint-section">
+                <button onclick="showHint()" class="hint-btn">
+                    <span class="emoji">💡</span> Get a Hint
+                </button>
+                <p id="hint-text" class="hidden"></p>
+            </div>
+        </div>
+
+        <div id="game-stats" class="game-section">
+            <h2>📊 Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">🎮 Games Played:</span>
+                    <span id="total-games">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">🎯 Average Guesses:</span>
+                    <span id="avg-guesses">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">🏆 Best Score:</span>
+                    <span id="best-score">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">⏱️ Time Played:</span>
+                    <span id="time-played">0:00</span>
+                </div>
+            </div>
+            <div class="achievements">
+                <h3>🏆 Achievements</h3>
+                <div id="achievements-list" class="achievements-grid"></div>
+            </div>
+        </div>
+
+        <div id="game-message" class="message-box hidden"></div>
+
+        <div class="confetti-container" id="confetti-container"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html> 
