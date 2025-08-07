@@ -39,4 +39,4 @@ gameApp/
    - Too low (L)
    - Correct (C)
 4. Try to make the computer guess your number in as few attempts as possible!
-
+@2025 wise_dev
